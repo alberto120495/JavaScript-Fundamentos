@@ -2,22 +2,27 @@ const url = "https://jsonplaceholder.typicode.com/comments";
 const url2 = "https://jsonplaceholder.typicode.com/users";
 
 //Promesas
+
 const consultarAPI = () => {
   fetch(url)
     .then((res) => {
       return res.json();
     })
-    .then((res) => {
-      console.log(res);
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
     });
 };
 
-//consultarAPI();
+consultarAPI();
 
 //?ASYNC/AWAIT
 const consultarAPI2 = async () => {
   const res = await fetch(url);
   const data = await res.json();
+  return data;
 };
 
 consultarAPI2();
@@ -47,4 +52,4 @@ const consultarAPIS2 = async () => {
   console.log(resultado2);
 };
 
-consultarAPIS2();
+//consultarAPIS2();
